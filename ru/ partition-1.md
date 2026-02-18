@@ -36,8 +36,7 @@ cd путь\к\platform-tools
 ```cmd
 adb reboot bootloader
 ```
-> [!NOTE]
-> Если ваше устройство не определяется в fastboot или recovery, вам необходимо установить драйверы USB с помощью [этого](troubleshooting-ru.md#device-is-not-recognized-in-fastboot-or-recovery) гайда.
+
 
 
 ### Загрузка в модифицированный recovery
@@ -49,10 +48,9 @@ fastboot boot путь\к\recovery.img
 ### Создайте резервную копию вашего существующего загрузочного образа
 ```cmd
 adb shell "dd if=/dev/block/platform/soc/1d84000.ufshc/by-name/boot$(getprop ro.boot.slot_suffix) of=/tmp/normal_boot.img" && adb pull /tmp/normal_boot.img
+```
 
 ### Прошивка последнего firmware
->
-> [!Important]
 
 - Cкачайте **fw_vayu_miui.zip** и положите в удобную для вас папку на теефоне.
 - Выберите пункт **Install** в TWRP, найдите фай который скаччали ранее и установите его.
@@ -60,8 +58,6 @@ adb shell "dd if=/dev/block/platform/soc/1d84000.ufshc/by-name/boot$(getprop ro.
 
 ### Разметка хранилища устройства
  
-### Способ 1: автоматическая разметка (рекомендуется)
-
 ### Запустите скрипт разметки
 
 > Замените **$** на объём памяти, который вы хотите выделить для Windows (не добавляйте ГБ, просто напишите число)
